@@ -1,9 +1,6 @@
 <?php
 
-define('HOST', 'localhost');
-define('DATABASE', 'livebox');
-define('USER', 'root');
-define('PASSWORD', '');
+require_once 'config/config.php';
 
 $connectDB = new mysqli(HOST, USER, PASSWORD, DATABASE);
 
