@@ -25,10 +25,15 @@ if($connectDB->connect_errno) {
             image_data  MEDIUMBLOB    NOT NULL
           );";
 
-    if($connectDB->query($query))
+    $result = $connectDB->query($query);
+
+    if($result) {
 
         echo "\n\033[" . implode(';', array(46, 42)) . 'm' . 'Table created' . "\033[0m\n";
+        $result->free();
+        $connectDB->close();
 
+    }
     else{
 
         echo "\n\033[" . implode(';', array(46, 41)) . 'm' . 'Error creating table' . "\033[0m";

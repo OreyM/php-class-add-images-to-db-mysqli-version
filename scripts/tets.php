@@ -7,3 +7,5 @@ $connectDB = new mysqli(HOST, USER, PASSWORD, DATABASE);
 $addImage = new ImagesDB($connectDB);
 
 $addImage->addImageToDB();
+
+$connectDB->close();

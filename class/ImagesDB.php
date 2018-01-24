@@ -71,10 +71,14 @@ class ImagesDB{
                 $this->tableData['imageName'], $this->dataBaseConnect->real_escape_string($this->tableData['mimeType']),
                 $this->tableData['imageSize'], $this->dataBaseConnect->real_escape_string($this->tableData['imageData']));
 
-            if(!($this->dataBaseConnect->query($query)))
+            $result = $this->dataBaseConnect->query($query);
+
+            if(!$result)
                 echo "ERROR " . $this->dataBaseConnect->error;
             else
                 $this->showImageFromDB();
+
+            $result->free();
 
         } else
             exit();
